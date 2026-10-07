@@ -50,6 +50,15 @@ Linux or as an administrator on Windows.
 
 To run the few basic provided tests, use the following command: `cargo test -- --nocapture`.
 
+## Credits & Acknowledgments
+
+- **[a2x](https://github.com/a2x)**: Original creator of [cs2-dumper](https://github.com/a2x/cs2-dumper), schema system parser, and memory layout analysis.
+- **[webaibtw](https://github.com/webaibtw)**: Offline DLL scanning, game function signatures (`TraceShape`, `SetViewAngles`, `GetBaseEntity`, `GetBonePosition`, `CreateInterface`), IDA pattern generator, and automated VPS/CI-CD workflows.
+- **[memflow](https://github.com/memflow/memflow)**: Physical memory introspection framework.
+- **[pelite](https://github.com/CasualX/pelite)**: High-performance PE binary parsing and pattern scanning in Rust.
+- **[SteamRE / DepotDownloader](https://github.com/SteamRE/DepotDownloader)**: Steam depot downloading utility.
+
 ## License
 
 Licensed under the MIT license ([LICENSE](./LICENSE)).
+
