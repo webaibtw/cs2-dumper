@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2026-10-06 06:58:22.576223100 UTC
+// 2026-10-07 09:59:06.957561100 UTC
 
 pub const cs2_dumper = struct {
     pub const offsets = struct {
@@ -10,6 +10,7 @@ pub const cs2_dumper = struct {
             pub const dwGameEntitySystem: usize = 0x2717828;
             pub const dwGameEntitySystem_highestEntityIndex: usize = 0x2120;
             pub const dwGameRules: usize = 0x255EE50;
+            pub const dwGameTraceManager: usize = 0x254B0E8;
             pub const dwGlobalVars: usize = 0x222DE98;
             pub const dwGlowManager: usize = 0x255EE60;
             pub const dwLocalPlayerController: usize = 0x253A068;
@@ -22,6 +23,11 @@ pub const cs2_dumper = struct {
             pub const dwViewMatrix: usize = 0x2567FA0;
             pub const dwViewRender: usize = 0x2568968;
             pub const dwWeaponC4: usize = 0x24C6AF0;
+            pub const fnCreateInterface: usize = 0x19CB4E0;
+            pub const fnGetBaseEntity: usize = 0x142E300;
+            pub const fnGetBonePosition: usize = 0xE5DF50;
+            pub const fnSetViewAngles: usize = 0xB80BA0;
+            pub const fnTraceShape: usize = 0xA19EF0;
         };
         // Module: engine2.dll
         pub const engine2_dll = struct {
@@ -36,6 +42,7 @@ pub const cs2_dumper = struct {
             pub const dwNetworkGameClient_signOnState: usize = 0x230;
             pub const dwWindowHeight: usize = 0x91F334;
             pub const dwWindowWidth: usize = 0x91F330;
+            pub const fnCreateInterface: usize = 0x409390;
         };
         // Module: inputsystem.dll
         pub const inputsystem_dll = struct {

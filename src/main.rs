@@ -10,7 +10,7 @@ use anyhow::Result;
 
 use clap::{ArgAction, Parser};
 
-use log::{LevelFilter, info};
+use log::{LevelFilter, info, warn};
 
 use memflow::prelude::v1::*;
 
@@ -33,6 +33,15 @@ struct Args {
     /// Additional arguments to pass to the memflow connector.
     #[arg(short = 'a', long)]
     connector_args: Option<String>,
+
+    /// Path to the CS2 game directory or directory containing DLL files.
+    /// If specified or if the game process is not running, scans the DLL files directly from disk.
+    #[arg(short = 'd', long)]
+    game_dir: Option<PathBuf>,
+
+    /// Force offline mode (scan DLL files directly without attaching to memory).
+    #[arg(long)]
+    offline: bool,
 
     /// The types of files to generate.
     #[arg(
@@ -93,12 +102,23 @@ fn main() -> Result<()> {
 
     CombinedLogger::init(loggers)?;
 
+    let now = Instant::now();
+
+    if args.offline || args.game_dir.is_some() {
+        info!("running in offline DLL scanning mode...");
+        let (result, build_number) = analysis::analyze_offline(args.game_dir.as_deref())?;
+        let output = Output::new(&args.file_types, args.indent_size, &args.output, &result)?;
+        output.dump_offline(build_number)?;
+        info!("offline analysis completed in {:.2?}", now.elapsed());
+        return Ok(());
+    }
+
     let conn_args = args
         .connector_args
         .map(|s| ConnectorArgs::from_str(&s).expect("unable to parse connector arguments"))
         .unwrap_or_default();
 
-    let mut os = match args.connector {
+    let os_res = match args.connector {
         Some(conn) => {
             let mut inventory = Inventory::scan();
 
@@ -107,30 +127,61 @@ fn main() -> Result<()> {
                 .connector(&conn)
                 .args(conn_args)
                 .os("win32")
-                .build()?
+                .build()
+                .map_err(|e| anyhow::anyhow!("{}", e))
         }
         None => {
             #[cfg(windows)]
             {
-                memflow_native::create_os(&OsArgs::default(), LibArc::default())?
+                memflow_native::create_os(&OsArgs::default(), LibArc::default())
+                    .map_err(|e| anyhow::anyhow!("{}", e))
             }
             #[cfg(not(windows))]
             {
-                panic!("no connector specified")
+                anyhow::bail!("no connector specified")
             }
         }
     };
 
-    let mut process = os.process_by_name(&args.process_name)?;
+    let mut os = match os_res {
+        Ok(os) => os,
+        Err(err) => {
+            warn!(
+                "could not initialize memflow OS connector: {}. Falling back to offline DLL scanning...",
+                err
+            );
 
-    let now = Instant::now();
+            let (result, build_number) = analysis::analyze_offline(args.game_dir.as_deref())?;
+            let output = Output::new(&args.file_types, args.indent_size, &args.output, &result)?;
+            output.dump_offline(build_number)?;
+            info!("offline analysis completed in {:.2?}", now.elapsed());
+            return Ok(());
+        }
+    };
 
-    let result = analysis::analyze_all(&mut process)?;
-    let output = Output::new(&args.file_types, args.indent_size, &args.output, &result)?;
+    match os.process_by_name(&args.process_name) {
+        Ok(mut process) => {
+            let result = analysis::analyze_all(&mut process)?;
+            let output = Output::new(&args.file_types, args.indent_size, &args.output, &result)?;
 
-    output.dump_all(&mut process)?;
+            output.dump_all(&mut process)?;
 
-    info!("analysis completed in {:.2?}", now.elapsed());
+            info!("analysis completed in {:.2?}", now.elapsed());
+        }
+        Err(err) => {
+            warn!(
+                "could not attach to game process ({}): {}. Falling back to offline DLL scanning...",
+                args.process_name, err
+            );
+
+            let (result, build_number) = analysis::analyze_offline(args.game_dir.as_deref())?;
+            let output = Output::new(&args.file_types, args.indent_size, &args.output, &result)?;
+
+            output.dump_offline(build_number)?;
+
+            info!("offline analysis completed in {:.2?}", now.elapsed());
+        }
+    }
 
     Ok(())
 }

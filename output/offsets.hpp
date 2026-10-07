@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2026-10-06 06:58:22.576223100 UTC
+// 2026-10-07 09:59:06.957561100 UTC
 
 #pragma once
 
@@ -15,6 +15,7 @@ namespace cs2_dumper {
             constexpr std::ptrdiff_t dwGameEntitySystem = 0x2717828;
             constexpr std::ptrdiff_t dwGameEntitySystem_highestEntityIndex = 0x2120;
             constexpr std::ptrdiff_t dwGameRules = 0x255EE50;
+            constexpr std::ptrdiff_t dwGameTraceManager = 0x254B0E8;
             constexpr std::ptrdiff_t dwGlobalVars = 0x222DE98;
             constexpr std::ptrdiff_t dwGlowManager = 0x255EE60;
             constexpr std::ptrdiff_t dwLocalPlayerController = 0x253A068;
@@ -27,6 +28,11 @@ namespace cs2_dumper {
             constexpr std::ptrdiff_t dwViewMatrix = 0x2567FA0;
             constexpr std::ptrdiff_t dwViewRender = 0x2568968;
             constexpr std::ptrdiff_t dwWeaponC4 = 0x24C6AF0;
+            constexpr std::ptrdiff_t fnCreateInterface = 0x19CB4E0;
+            constexpr std::ptrdiff_t fnGetBaseEntity = 0x142E300;
+            constexpr std::ptrdiff_t fnGetBonePosition = 0xE5DF50;
+            constexpr std::ptrdiff_t fnSetViewAngles = 0xB80BA0;
+            constexpr std::ptrdiff_t fnTraceShape = 0xA19EF0;
         }
         // Module: engine2.dll
         namespace engine2_dll {
@@ -41,6 +47,7 @@ namespace cs2_dumper {
             constexpr std::ptrdiff_t dwNetworkGameClient_signOnState = 0x230;
             constexpr std::ptrdiff_t dwWindowHeight = 0x91F334;
             constexpr std::ptrdiff_t dwWindowWidth = 0x91F330;
+            constexpr std::ptrdiff_t fnCreateInterface = 0x409390;
         }
         // Module: inputsystem.dll
         namespace inputsystem_dll {

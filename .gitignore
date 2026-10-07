@@ -4,3 +4,6 @@
 /target
 Cargo.lock
 cs2-dumper.exe
+/cs2_dlls
+/bin_depot
+*.log

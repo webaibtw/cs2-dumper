@@ -1,0 +1,6 @@
+game/bin/win64/engine2.dll
+game/bin/win64/inputsystem.dll
+game/bin/win64/soundsystem.dll
+game/csgo/bin/win64/client.dll
+game/csgo/bin/win64/matchmaking.dll
+game/csgo/steam.inf

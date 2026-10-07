@@ -83,6 +83,7 @@ pattern_map! {
         "dwGameEntitySystem" => pattern!("488b1d${'} 48891d[4] 4c63b3") => None,
         "dwGameEntitySystem_highestEntityIndex" => pattern!("ff81u4 4885d2") => None,
         "dwGameRules" => pattern!("f6c1010f85${} 4c8b05${'} 4d85") => None,
+        "dwGameTraceManager" => pattern!("488b05${'} f048ff00 4c8bb5") => None,
         "dwGlobalVars" => pattern!("488915${'} 488942") => None,
         "dwGlowManager" => pattern!("488b05${'} c3 cccccccccccccccc 8b41") => None,
         "dwLocalPlayerController" => pattern!("488b05${'} 4189be") => None,
@@ -100,6 +101,11 @@ pattern_map! {
         "dwViewMatrix" => pattern!("488d0d${'} 48c1e006") => None,
         "dwViewRender" => pattern!("488905${'} 488bc8 4885c0") => None,
         "dwWeaponC4" => pattern!("488b15${'} 488b5c24? ffc0 8905${} 488bc6 488934ea 80be") => None,
+        "fnCreateInterface" => pattern!("' 4c8b0d???? 4c8bd2 4c8bd9 4d85c9 74? 498b4108") => None,
+        "fnGetBaseEntity" => pattern!("' 48896c24? 574883ec? 448b49? bdffffff7f 4423cd 488bf9 418bc8 4585c0 7436") => None,
+        "fnGetBonePosition" => pattern!("' 48895c24? 48897c24? 55488bec4883ec? e8???? 488d05??fdff") => None,
+        "fnSetViewAngles" => pattern!("' 85d2 75? 486381???? f2410f1000") => None,
+        "fnTraceShape" => pattern!("' 48895424? 48894c24? 55535657415441564157 488dac24???? b8??0000") => None,
     },
     engine2 => {
         "dwBuildNumber" => pattern!("8905${'} 488d0d${} ff15${} 488b0d") => None,
@@ -113,6 +119,7 @@ pattern_map! {
         "dwNetworkGameClient_signOnState" => pattern!("448b81u4 488d0d") => None,
         "dwWindowHeight" => pattern!("8b05${'} 8903") => None,
         "dwWindowWidth" => pattern!("8b05${'} 8907") => None,
+        "fnCreateInterface" => pattern!("' 4c8b0d???? 4c8bd2 4c8bd9 4d85c9 74? 498b4108") => None,
     },
     input_system => {
         "dwInputSystem" => pattern!("488905${'} 33c0") => None,
@@ -152,6 +159,56 @@ pub fn offsets<P: Process + MemoryView>(process: &mut P) -> Result<OffsetMap> {
     Ok(map)
 }
 
+pub fn offsets_from_view(module_name: &str, view: PeView) -> Option<BTreeMap<String, Rva>> {
+    match module_name {
+        "client.dll" => Some(client::offsets(view)),
+        "engine2.dll" => Some(engine2::offsets(view)),
+        "inputsystem.dll" => Some(input_system::offsets(view)),
+        "matchmaking.dll" => Some(matchmaking::offsets(view)),
+        "soundsystem.dll" => Some(soundsystem::offsets(view)),
+        _ => None,
+    }
+}
+
+pub fn pe_file_to_view(bytes: &[u8]) -> Result<Vec<u8>> {
+    let file = pelite::pe64::PeFile::from_bytes(bytes)?;
+    let optional_header = file.optional_header();
+    let sizeof_image = optional_header.SizeOfImage as usize;
+    let sizeof_headers = optional_header.SizeOfHeaders as usize;
+
+    let mut view = vec![0u8; sizeof_image];
+
+    let header_copy_len = sizeof_headers.min(bytes.len());
+    view[..header_copy_len].copy_from_slice(&bytes[..header_copy_len]);
+
+    for section in file.section_headers() {
+        let va = section.VirtualAddress as usize;
+        let raw_ptr = section.PointerToRawData as usize;
+        let raw_size = section.SizeOfRawData as usize;
+
+        if raw_ptr >= bytes.len() || va >= sizeof_image {
+            continue;
+        }
+
+        let copy_len = raw_size
+            .min(bytes.len().saturating_sub(raw_ptr))
+            .min(sizeof_image.saturating_sub(va));
+
+        if copy_len > 0 {
+            view[va..va + copy_len].copy_from_slice(&bytes[raw_ptr..raw_ptr + copy_len]);
+        }
+    }
+
+    Ok(view)
+}
+
+pub fn offsets_from_dll_bytes(module_name: &str, bytes: &[u8]) -> Result<BTreeMap<String, Rva>> {
+    let view_buf = pe_file_to_view(bytes)?;
+    let view = PeView::from_bytes(&view_buf)?;
+    offsets_from_view(module_name, view)
+        .ok_or_else(|| anyhow::anyhow!("unknown module: {}", module_name))
+}
+
 #[cfg(test)]
 mod tests {
     use std::fs;
@@ -162,6 +219,50 @@ mod tests {
     use simplelog::*;
 
     use super::*;
+
+    #[test]
+    fn test_offline_client_dll() {
+        let client_path = if std::path::Path::new(r"D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\csgo\bin\win64\client.dll").exists() {
+            r"D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\csgo\bin\win64\client.dll"
+        } else {
+            r"cs2_dlls\game\csgo\bin\win64\client.dll"
+        };
+
+        let engine_path = if std::path::Path::new(r"D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\bin\win64\engine2.dll").exists() {
+            r"D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\bin\win64\engine2.dll"
+        } else {
+            r"cs2_dlls\game\bin\win64\engine2.dll"
+        };
+
+        if let Ok(bytes) = std::fs::read(client_path) {
+            let res = offsets_from_dll_bytes("client.dll", &bytes);
+            assert!(res.is_ok());
+            let map = res.unwrap();
+            println!("Offline client.dll offsets count: {}", map.len());
+            for (k, v) in &map {
+                println!("  {}: 0x{:X}", k, v);
+            }
+            assert!(map.contains_key("dwEntityList"));
+            assert!(map.contains_key("dwGameTraceManager"));
+            assert!(map.contains_key("fnCreateInterface"));
+            assert!(map.contains_key("fnGetBaseEntity"));
+            assert!(map.contains_key("fnGetBonePosition"));
+            assert!(map.contains_key("fnSetViewAngles"));
+            assert!(map.contains_key("fnTraceShape"));
+        }
+
+        if let Ok(bytes) = std::fs::read(engine_path) {
+            let res = offsets_from_dll_bytes("engine2.dll", &bytes);
+            assert!(res.is_ok());
+            let map = res.unwrap();
+            println!("Offline engine2.dll offsets count: {}", map.len());
+            for (k, v) in &map {
+                println!("  {}: 0x{:X}", k, v);
+            }
+            assert!(map.contains_key("dwBuildNumber"));
+            assert!(map.contains_key("fnCreateInterface"));
+        }
+    }
 
     #[test]
     fn build_number() -> Result<()> {

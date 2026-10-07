@@ -1,0 +1,48 @@
+name: Auto Dump CS2 Offsets & Patterns
+
+on:
+  schedule:
+    # Run every 6 hours to check for new CS2 updates
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache Cargo Dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+      - name: Download CS2 DLLs & Run Dump
+        run: |
+          chmod +x ./scripts/vps-dump.sh
+          ./scripts/vps-dump.sh
+
+      - name: Commit & Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add output/
+          if git diff --staged --quiet; then
+            echo "No changes in CS2 offsets/patterns."
+          else
+            BUILD_NUM=$(cat output/info.json | grep -o '"build_number": [0-9]*' | awk '{print $2}')
+            git commit -m "Auto-update CS2 offsets & patterns (build ${BUILD_NUM})"
+            git push
+          fi

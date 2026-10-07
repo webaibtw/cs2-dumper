@@ -18,12 +18,14 @@ mod buttons;
 mod formatter;
 mod interfaces;
 mod offsets;
+mod patterns;
 mod schemas;
 
 enum Item<'a> {
     Buttons(&'a ButtonMap),
     Interfaces(&'a InterfaceMap),
     Offsets(&'a OffsetMap),
+    Patterns(&'a PatternMap),
     Schemas(&'a SchemaMap),
 }
 
@@ -54,6 +56,7 @@ impl<'a> CodeWriter for Item<'a> {
             Item::Buttons(buttons) => buttons.write_cs(fmt),
             Item::Interfaces(ifaces) => ifaces.write_cs(fmt),
             Item::Offsets(offsets) => offsets.write_cs(fmt),
+            Item::Patterns(patterns) => patterns.write_cs(fmt),
             Item::Schemas(schemas) => schemas.write_cs(fmt),
         }
     }
@@ -63,6 +66,7 @@ impl<'a> CodeWriter for Item<'a> {
             Item::Buttons(buttons) => buttons.write_hpp(fmt),
             Item::Interfaces(ifaces) => ifaces.write_hpp(fmt),
             Item::Offsets(offsets) => offsets.write_hpp(fmt),
+            Item::Patterns(patterns) => patterns.write_hpp(fmt),
             Item::Schemas(schemas) => schemas.write_hpp(fmt),
         }
     }
@@ -72,6 +76,7 @@ impl<'a> CodeWriter for Item<'a> {
             Item::Buttons(buttons) => buttons.write_json(fmt),
             Item::Interfaces(ifaces) => ifaces.write_json(fmt),
             Item::Offsets(offsets) => offsets.write_json(fmt),
+            Item::Patterns(patterns) => patterns.write_json(fmt),
             Item::Schemas(schemas) => schemas.write_json(fmt),
         }
     }
@@ -81,6 +86,7 @@ impl<'a> CodeWriter for Item<'a> {
             Item::Buttons(buttons) => buttons.write_rs(fmt),
             Item::Interfaces(ifaces) => ifaces.write_rs(fmt),
             Item::Offsets(offsets) => offsets.write_rs(fmt),
+            Item::Patterns(patterns) => patterns.write_rs(fmt),
             Item::Schemas(schemas) => schemas.write_rs(fmt),
         }
     }
@@ -90,6 +96,7 @@ impl<'a> CodeWriter for Item<'a> {
             Item::Buttons(buttons) => buttons.write_zig(fmt),
             Item::Interfaces(ifaces) => ifaces.write_zig(fmt),
             Item::Offsets(offsets) => offsets.write_zig(fmt),
+            Item::Patterns(patterns) => patterns.write_zig(fmt),
             Item::Schemas(schemas) => schemas.write_zig(fmt),
         }
     }
@@ -122,27 +129,50 @@ impl<'a> Output<'a> {
     }
 
     pub fn dump_all<P: MemoryView + Process>(&self, process: &mut P) -> Result<()> {
+        let build_number = self.read_build_number(process);
+        self.dump_offline(build_number)
+    }
+
+    pub fn dump_offline(&self, build_number: Option<u32>) -> Result<()> {
         let items = [
             ("buttons", Item::Buttons(&self.result.buttons)),
             ("interfaces", Item::Interfaces(&self.result.interfaces)),
             ("offsets", Item::Offsets(&self.result.offsets)),
+            ("patterns", Item::Patterns(&self.result.patterns)),
         ];
 
         for (file_name, item) in &items {
-            self.dump_item(file_name, item)?;
+            let is_empty = match item {
+                Item::Buttons(b) => b.is_empty(),
+                Item::Interfaces(i) => i.is_empty(),
+                Item::Offsets(o) => o.is_empty(),
+                Item::Patterns(p) => p.is_empty(),
+                Item::Schemas(s) => s.is_empty(),
+            };
+
+            if !is_empty {
+                self.dump_item(file_name, item)?;
+            }
         }
 
-        self.dump_schemas()?;
-        self.dump_info(process)?;
+        if !self.result.schemas.is_empty() {
+            self.dump_schemas()?;
+        }
+
+        if let Some(build_number) = build_number {
+            let file_path = self.out_dir.join("info.json");
+            let content = serde_json::to_string_pretty(&json!({
+                "timestamp": self.timestamp.to_rfc3339(),
+                "build_number": build_number,
+            }))?;
+            fs::write(&file_path, &content)?;
+        }
 
         Ok(())
     }
 
-    fn dump_info<P: MemoryView + Process>(&self, process: &mut P) -> Result<()> {
-        let file_path = self.out_dir.join("info.json");
-
-        let build_number = self
-            .result
+    fn read_build_number<P: MemoryView + Process>(&self, process: &mut P) -> Option<u32> {
+        self.result
             .offsets
             .iter()
             .find_map(|(module_name, offsets)| {
@@ -151,16 +181,6 @@ impl<'a> Output<'a> {
 
                 process.read::<u32>(module.base + offset).data_part().ok()
             })
-            .ok_or(anyhow!("failed to read build number"))?;
-
-        let content = serde_json::to_string_pretty(&json!({
-            "timestamp": self.timestamp.to_rfc3339(),
-            "build_number": build_number,
-        }))?;
-
-        fs::write(&file_path, &content)?;
-
-        Ok(())
     }
 
     fn dump_item(&self, file_name: &str, item: &Item) -> Result<()> {
