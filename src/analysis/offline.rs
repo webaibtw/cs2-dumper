@@ -5,13 +5,19 @@ use std::path::{Path, PathBuf};
 use anyhow::{Result, bail};
 use log::{debug, info, warn};
 
-use super::{AnalysisResult, OffsetMap, offsets_from_dll_bytes, pattern_map};
+use super::{
+    AnalysisResult, FunctionMap, OffsetMap, offsets_from_dll_bytes, pattern_map, pe_file_to_view,
+    scan_functions_from_view,
+};
 
-const TARGET_MODULES: [&str; 5] = [
+const TARGET_MODULES: [&str; 8] = [
     "client.dll",
     "engine2.dll",
     "inputsystem.dll",
     "matchmaking.dll",
+    "panorama.dll",
+    "particles.dll",
+    "scenesystem.dll",
     "soundsystem.dll",
 ];
 
@@ -26,6 +32,7 @@ pub fn analyze_offline(custom_dir: Option<&Path>) -> Result<(AnalysisResult, Opt
     info!("found {} DLLs on disk for offline analysis", dll_map.len());
 
     let mut offsets = OffsetMap::new();
+    let mut functions = FunctionMap::new();
 
     for (module_name, path) in &dll_map {
         debug!("analyzing {} at {:?}", module_name, path);
@@ -36,7 +43,17 @@ pub fn analyze_offline(custom_dir: Option<&Path>) -> Result<(AnalysisResult, Opt
                 offsets.insert(module_name.clone(), mod_offsets);
             }
             Err(err) => {
-                warn!("failed to analyze {}: {}", module_name, err);
+                debug!("offsets skipped for {}: {}", module_name, err);
+            }
+        }
+
+        if let Ok(view_buf) = pe_file_to_view(&bytes) {
+            if let Ok(view) = pelite::pe64::PeView::from_bytes(&view_buf) {
+                let mod_fns = scan_functions_from_view(module_name, view);
+                if !mod_fns.is_empty() {
+                    info!("found {} functions in {}", mod_fns.len(), module_name);
+                    functions.insert(module_name.clone(), mod_fns);
+                }
             }
         }
     }
@@ -45,6 +62,7 @@ pub fn analyze_offline(custom_dir: Option<&Path>) -> Result<(AnalysisResult, Opt
 
     let result = AnalysisResult {
         buttons: BTreeMap::new(),
+        functions,
         interfaces: BTreeMap::new(),
         offsets,
         patterns,
@@ -253,6 +271,7 @@ fn get_steam_libraries() -> Vec<PathBuf> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use pelite::pe64::{Pe, PeView};
 
     #[test]
     fn test_find_cs2_dlls_auto() {
@@ -260,6 +279,26 @@ mod tests {
         println!("Found DLLs: {:?}, BuildNumber: {:?}", dlls, bn);
         if !dlls.is_empty() {
             assert!(dlls.contains_key("client.dll"));
+        }
+    }
+
+    #[test]
+    fn test_scan_functions_from_view() {
+        let (dlls, _) = find_cs2_dlls(None).unwrap();
+        for mod_name in ["client.dll", "engine2.dll", "scenesystem.dll", "particles.dll", "inputsystem.dll", "panorama.dll"] {
+            if let Some(path) = dlls.get(mod_name) {
+                let bytes = fs::read(path).unwrap();
+                let view_buf = crate::analysis::offsets::pe_file_to_view(&bytes).unwrap();
+                let view = PeView::from_bytes(&view_buf).unwrap();
+                let fns = scan_functions_from_view(mod_name, view);
+                println!("Module {}: scanned {} functions", mod_name, fns.len());
+                assert!(!fns.is_empty(), "module {} should have at least 1 function", mod_name);
+                assert!(fns.contains_key("CreateInterface"));
+                for (_name, info) in &fns {
+                    assert!(info.matches >= 1);
+                    assert!(info.rva > 0);
+                }
+            }
         }
     }
 }

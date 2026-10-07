@@ -1,0 +1,206 @@
+{
+  "client.dll": {
+    "BinaryProperties_GetValue": {
+      "pattern": "83 F9 07 0F 87 ? ? ? ? 48 63 C1 4C 8D 05 ? ? ? ? 41 8B 8C 80 ?",
+      "rva": 12784688,
+      "rva_hex": "0xC31430",
+      "matches": 1
+    },
+    "CreateInterface": {
+      "pattern": "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08",
+      "rva": 27047136,
+      "rva_hex": "0x19CB4E0",
+      "matches": 1
+    },
+    "GetBaseEntity": {
+      "pattern": "48 89 6C 24 ? 57 48 83 EC ? 44 8B 49 ? BD FF FF FF 7F 44 23 CD 48 8B F9 41 8B C8 45 85 C0 74 36",
+      "rva": 21160704,
+      "rva_hex": "0x142E300",
+      "matches": 1
+    },
+    "GetBonePosition": {
+      "pattern": "48 89 5C 24 ? 48 89 7C 24 ? 55 48 8B EC 48 83 EC ? E8 ? ? ? ? 48 8D 05 ? ? FD FF",
+      "rva": 15064912,
+      "rva_hex": "0xE5DF50",
+      "matches": 1
+    },
+    "InstallSchemaBindings": {
+      "pattern": "40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ?",
+      "rva": 27102288,
+      "rva_hex": "0x19D8C50",
+      "matches": 1
+    },
+    "SetViewAngles": {
+      "pattern": "85 D2 75 ? 48 63 81 ? ? ? ? F2 41 0F 10 00",
+      "rva": 12061600,
+      "rva_hex": "0xB80BA0",
+      "matches": 1
+    },
+    "TraceShape": {
+      "pattern": "48 89 54 24 ? 48 89 4C 24 ? 55 53 56 57 41 54 41 56 41 57 48 8D AC 24 ? ? ? ? B8 ? ? 00 00",
+      "rva": 10591984,
+      "rva_hex": "0xA19EF0",
+      "matches": 1
+    }
+  },
+  "engine2.dll": {
+    "CreateInterface": {
+      "pattern": "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08",
+      "rva": 4232080,
+      "rva_hex": "0x409390",
+      "matches": 1
+    },
+    "ExtractModuleMetadata": {
+      "pattern": "40 56 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8B F1 8B 15 ? ? ? ?",
+      "rva": 2391600,
+      "rva_hex": "0x247E30",
+      "matches": 1
+    },
+    "GetResourceManifests": {
+      "pattern": "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56",
+      "rva": 246704,
+      "rva_hex": "0x3C3B0",
+      "matches": 59
+    },
+    "InstallSchemaBindings": {
+      "pattern": "40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ?",
+      "rva": 4335584,
+      "rva_hex": "0x4227E0",
+      "matches": 1
+    },
+    "Source2Main": {
+      "pattern": "48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 18 41 56 48 81 EC 80 00 00 00",
+      "rva": 2160816,
+      "rva_hex": "0x20F8B0",
+      "matches": 1
+    }
+  },
+  "inputsystem.dll": {
+    "BinaryProperties_GetValue": {
+      "pattern": "83 F9 07 0F 87 ? ? ? ? 48 63 C1 4C 8D 05 ? ? ? ? 41 8B 8C 80 ?",
+      "rva": 90736,
+      "rva_hex": "0x16270",
+      "matches": 1
+    },
+    "CreateInterface": {
+      "pattern": "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08",
+      "rva": 93952,
+      "rva_hex": "0x16F00",
+      "matches": 1
+    },
+    "ExtractModuleMetadata": {
+      "pattern": "40 56 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8B F1 8B 15 ? ? ? ?",
+      "rva": 91840,
+      "rva_hex": "0x166C0",
+      "matches": 1
+    },
+    "GetResourceManifests": {
+      "pattern": "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56",
+      "rva": 91040,
+      "rva_hex": "0x163A0",
+      "matches": 6
+    },
+    "InstallSchemaBindings": {
+      "pattern": "40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ?",
+      "rva": 130880,
+      "rva_hex": "0x1FF40",
+      "matches": 1
+    }
+  },
+  "panorama.dll": {
+    "CreateInterface": {
+      "pattern": "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08",
+      "rva": 4046144,
+      "rva_hex": "0x3DBD40",
+      "matches": 1
+    },
+    "CreatePanoramaUIEngineInternal": {
+      "pattern": "48 89 5C 24 18 48 89 6C 24 20 56 57 41 55 41 56 41 57 48 83 EC 20 48 8B",
+      "rva": 664048,
+      "rva_hex": "0xA21F0",
+      "matches": 1
+    },
+    "ExtractModuleMetadata": {
+      "pattern": "40 56 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8B F1 8B 15 ? ? ? ?",
+      "rva": 652608,
+      "rva_hex": "0x9F540",
+      "matches": 1
+    },
+    "GetResourceManifests": {
+      "pattern": "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56",
+      "rva": 577920,
+      "rva_hex": "0x8D180",
+      "matches": 65
+    },
+    "InstallSchemaBindings": {
+      "pattern": "40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ?",
+      "rva": 4133440,
+      "rva_hex": "0x3F1240",
+      "matches": 1
+    }
+  },
+  "particles.dll": {
+    "BinaryProperties_GetValue": {
+      "pattern": "83 F9 07 0F 87 ? ? ? ? 48 63 C1 4C 8D 05 ? ? ? ? 41 8B 8C 80 ?",
+      "rva": 852928,
+      "rva_hex": "0xD03C0",
+      "matches": 1
+    },
+    "CreateInterface": {
+      "pattern": "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08",
+      "rva": 4346848,
+      "rva_hex": "0x4253E0",
+      "matches": 1
+    },
+    "ExtractModuleMetadata": {
+      "pattern": "40 56 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8B F1 8B 15 ? ? ? ?",
+      "rva": 854032,
+      "rva_hex": "0xD0810",
+      "matches": 1
+    },
+    "GetResourceManifests": {
+      "pattern": "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56",
+      "rva": 74112,
+      "rva_hex": "0x12180",
+      "matches": 22
+    },
+    "InstallSchemaBindings": {
+      "pattern": "40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ?",
+      "rva": 4365136,
+      "rva_hex": "0x429B50",
+      "matches": 1
+    }
+  },
+  "scenesystem.dll": {
+    "BinaryProperties_GetValue": {
+      "pattern": "83 F9 07 0F 87 ? ? ? ? 48 63 C1 4C 8D 05 ? ? ? ? 41 8B 8C 80 ?",
+      "rva": 1449168,
+      "rva_hex": "0x161CD0",
+      "matches": 1
+    },
+    "CreateInterface": {
+      "pattern": "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08",
+      "rva": 5011808,
+      "rva_hex": "0x4C7960",
+      "matches": 1
+    },
+    "ExtractModuleMetadata": {
+      "pattern": "40 56 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8B F1 8B 15 ? ? ? ?",
+      "rva": 1450384,
+      "rva_hex": "0x162190",
+      "matches": 1
+    },
+    "GetResourceManifests": {
+      "pattern": "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56",
+      "rva": 120352,
+      "rva_hex": "0x1D620",
+      "matches": 77
+    },
+    "InstallSchemaBindings": {
+      "pattern": "40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ?",
+      "rva": 5015248,
+      "rva_hex": "0x4C86D0",
+      "matches": 1
+    }
+  }
+}

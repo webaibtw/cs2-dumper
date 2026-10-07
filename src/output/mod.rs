@@ -16,6 +16,7 @@ use crate::analysis::*;
 
 mod buttons;
 mod formatter;
+mod functions;
 mod interfaces;
 mod offsets;
 mod patterns;
@@ -23,6 +24,7 @@ mod schemas;
 
 enum Item<'a> {
     Buttons(&'a ButtonMap),
+    Functions(&'a FunctionMap),
     Interfaces(&'a InterfaceMap),
     Offsets(&'a OffsetMap),
     Patterns(&'a PatternMap),
@@ -54,6 +56,7 @@ impl<'a> CodeWriter for Item<'a> {
     fn write_cs(&self, fmt: &mut Formatter<'_>) -> fmt::Result {
         match self {
             Item::Buttons(buttons) => buttons.write_cs(fmt),
+            Item::Functions(functions) => functions.write_cs(fmt),
             Item::Interfaces(ifaces) => ifaces.write_cs(fmt),
             Item::Offsets(offsets) => offsets.write_cs(fmt),
             Item::Patterns(patterns) => patterns.write_cs(fmt),
@@ -64,6 +67,7 @@ impl<'a> CodeWriter for Item<'a> {
     fn write_hpp(&self, fmt: &mut Formatter<'_>) -> fmt::Result {
         match self {
             Item::Buttons(buttons) => buttons.write_hpp(fmt),
+            Item::Functions(functions) => functions.write_hpp(fmt),
             Item::Interfaces(ifaces) => ifaces.write_hpp(fmt),
             Item::Offsets(offsets) => offsets.write_hpp(fmt),
             Item::Patterns(patterns) => patterns.write_hpp(fmt),
@@ -74,6 +78,7 @@ impl<'a> CodeWriter for Item<'a> {
     fn write_json(&self, fmt: &mut Formatter<'_>) -> fmt::Result {
         match self {
             Item::Buttons(buttons) => buttons.write_json(fmt),
+            Item::Functions(functions) => functions.write_json(fmt),
             Item::Interfaces(ifaces) => ifaces.write_json(fmt),
             Item::Offsets(offsets) => offsets.write_json(fmt),
             Item::Patterns(patterns) => patterns.write_json(fmt),
@@ -84,6 +89,7 @@ impl<'a> CodeWriter for Item<'a> {
     fn write_rs(&self, fmt: &mut Formatter<'_>) -> fmt::Result {
         match self {
             Item::Buttons(buttons) => buttons.write_rs(fmt),
+            Item::Functions(functions) => functions.write_rs(fmt),
             Item::Interfaces(ifaces) => ifaces.write_rs(fmt),
             Item::Offsets(offsets) => offsets.write_rs(fmt),
             Item::Patterns(patterns) => patterns.write_rs(fmt),
@@ -94,6 +100,7 @@ impl<'a> CodeWriter for Item<'a> {
     fn write_zig(&self, fmt: &mut Formatter<'_>) -> fmt::Result {
         match self {
             Item::Buttons(buttons) => buttons.write_zig(fmt),
+            Item::Functions(functions) => functions.write_zig(fmt),
             Item::Interfaces(ifaces) => ifaces.write_zig(fmt),
             Item::Offsets(offsets) => offsets.write_zig(fmt),
             Item::Patterns(patterns) => patterns.write_zig(fmt),
@@ -136,6 +143,7 @@ impl<'a> Output<'a> {
     pub fn dump_offline(&self, build_number: Option<u32>) -> Result<()> {
         let items = [
             ("buttons", Item::Buttons(&self.result.buttons)),
+            ("functions", Item::Functions(&self.result.functions)),
             ("interfaces", Item::Interfaces(&self.result.interfaces)),
             ("offsets", Item::Offsets(&self.result.offsets)),
             ("patterns", Item::Patterns(&self.result.patterns)),
@@ -144,6 +152,7 @@ impl<'a> Output<'a> {
         for (file_name, item) in &items {
             let is_empty = match item {
                 Item::Buttons(b) => b.is_empty(),
+                Item::Functions(f) => f.is_empty(),
                 Item::Interfaces(i) => i.is_empty(),
                 Item::Offsets(o) => o.is_empty(),
                 Item::Patterns(p) => p.is_empty(),

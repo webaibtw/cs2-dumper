@@ -1,4 +1,5 @@
 pub use buttons::*;
+pub use functions::*;
 pub use interfaces::*;
 pub use offline::*;
 pub use offsets::*;
@@ -14,6 +15,7 @@ use log::{error, info};
 use memflow::prelude::v1::*;
 
 mod buttons;
+mod functions;
 mod interfaces;
 mod offline;
 mod offsets;
@@ -23,6 +25,7 @@ mod schemas;
 #[derive(Debug)]
 pub struct AnalysisResult {
     pub buttons: ButtonMap,
+    pub functions: FunctionMap,
     pub interfaces: InterfaceMap,
     pub offsets: OffsetMap,
     pub patterns: PatternMap,
@@ -67,6 +70,17 @@ pub fn analyze_all<P: Process + MemoryView>(process: &mut P) -> Result<AnalysisR
         patterns.len()
     );
 
+    let functions = analyze(process, functions);
+
+    info!(
+        "found {} functions across {} modules",
+        functions
+            .iter()
+            .map(|(_, fns)| fns.len())
+            .sum::<usize>(),
+        functions.len()
+    );
+
     let schemas = analyze(process, schemas);
 
     let (class_count, enum_count) =
@@ -85,6 +99,7 @@ pub fn analyze_all<P: Process + MemoryView>(process: &mut P) -> Result<AnalysisR
 
     Ok(AnalysisResult {
         buttons,
+        functions,
         interfaces,
         offsets,
         patterns,
