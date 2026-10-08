@@ -1,23 +1,23 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2026-10-08 13:05:47.533790772 UTC
+// 2026-10-08 23:06:58.981067554 UTC
 
 namespace CS2Dumper.Functions {
     // Module: client.dll
     public static class ClientDll {
         // Pattern: 83 F9 07 0F 87 ? ? ? ? 48 63 C1 4C 8D 05 ? ? ? ? 41 8B 8C 80 ? (Matches: 1)
-        public const nint BinaryProperties_GetValue = 0xC31430;
+        public const nint BinaryProperties_GetValue = 0xC30770;
         // Pattern: 4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08 (Matches: 1)
-        public const nint CreateInterface = 0x19CB4E0;
+        public const nint CreateInterface = 0x19C6770;
         // Pattern: 48 89 6C 24 ? 57 48 83 EC ? 44 8B 49 ? BD FF FF FF 7F 44 23 CD 48 8B F9 41 8B C8 45 85 C0 74 36 (Matches: 1)
-        public const nint GetBaseEntity = 0x142E300;
+        public const nint GetBaseEntity = 0x14296F0;
         // Pattern: 48 89 5C 24 ? 48 89 7C 24 ? 55 48 8B EC 48 83 EC ? E8 ? ? ? ? 48 8D 05 ? ? FD FF (Matches: 1)
-        public const nint GetBonePosition = 0xE5DF50;
+        public const nint GetBonePosition = 0xE5DA50;
         // Pattern: 40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ? (Matches: 1)
-        public const nint InstallSchemaBindings = 0x19D8C50;
+        public const nint InstallSchemaBindings = 0x19D3EE0;
         // Pattern: 85 D2 75 ? 48 63 81 ? ? ? ? F2 41 0F 10 00 (Matches: 1)
-        public const nint SetViewAngles = 0xB80BA0;
+        public const nint SetViewAngles = 0xB7FEE0;
         // Pattern: 48 89 54 24 ? 48 89 4C 24 ? 55 53 56 57 41 54 41 56 41 57 48 8D AC 24 ? ? ? ? B8 ? ? 00 00 (Matches: 1)
-        public const nint TraceShape = 0xA19EF0;
+        public const nint TraceShape = 0xA19140;
     }
     // Module: engine2.dll
     public static class Engine2Dll {
