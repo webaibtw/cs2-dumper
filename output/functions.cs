@@ -1,36 +1,36 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2026-10-28 12:25:49.010075795 UTC
+// 2026-10-28 22:23:16.758356172 UTC
 
 namespace CS2Dumper.Functions {
     // Module: client.dll
     public static class ClientDll {
         // Pattern: 83 F9 07 0F 87 ? ? ? ? 48 63 C1 4C 8D 05 ? ? ? ? 41 8B 8C 80 ? (Matches: 1)
-        public const nint BinaryProperties_GetValue = 0xC32560;
+        public const nint BinaryProperties_GetValue = 0xC32FC0;
         // Pattern: 4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08 (Matches: 1)
-        public const nint CreateInterface = 0x19CE7F0;
+        public const nint CreateInterface = 0x19D0580;
         // Pattern: 48 89 6C 24 ? 57 48 83 EC ? 44 8B 49 ? BD FF FF FF 7F 44 23 CD 48 8B F9 41 8B C8 45 85 C0 74 36 (Matches: 1)
-        public const nint GetBaseEntity = 0x1431820;
+        public const nint GetBaseEntity = 0x14335B0;
         // Pattern: 48 89 5C 24 ? 48 89 7C 24 ? 55 48 8B EC 48 83 EC ? E8 ? ? ? ? 48 8D 05 ? ? FD FF (Matches: 1)
-        public const nint GetBonePosition = 0xE62430;
+        public const nint GetBonePosition = 0xE62ED0;
         // Pattern: 40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ? (Matches: 1)
-        public const nint InstallSchemaBindings = 0x19DBF60;
+        public const nint InstallSchemaBindings = 0x19DDCF0;
         // Pattern: 85 D2 75 ? 48 63 81 ? ? ? ? F2 41 0F 10 00 (Matches: 1)
-        public const nint SetViewAngles = 0xB81CB0;
+        public const nint SetViewAngles = 0xB82710;
         // Pattern: 48 89 54 24 ? 48 89 4C 24 ? 55 53 56 57 41 54 41 56 41 57 48 8D AC 24 ? ? ? ? B8 ? ? 00 00 (Matches: 1)
-        public const nint TraceShape = 0xA1AE30;
+        public const nint TraceShape = 0xA1B750;
     }
     // Module: engine2.dll
     public static class Engine2Dll {
         // Pattern: 4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08 (Matches: 1)
-        public const nint CreateInterface = 0x40AE80;
+        public const nint CreateInterface = 0x40AEC0;
         // Pattern: 40 56 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8B F1 8B 15 ? ? ? ? (Matches: 1)
-        public const nint ExtractModuleMetadata = 0x2496A0;
+        public const nint ExtractModuleMetadata = 0x2496E0;
         // Pattern: 48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 (Matches: 69)
         public const nint GetResourceManifests = 0x3C810;
         // Pattern: 40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ? (Matches: 1)
-        public const nint InstallSchemaBindings = 0x4242D0;
+        public const nint InstallSchemaBindings = 0x424310;
         // Pattern: 48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 18 41 56 48 81 EC 80 00 00 00 (Matches: 1)
-        public const nint Source2Main = 0x2111C0;
+        public const nint Source2Main = 0x2111E0;
     }
     // Module: inputsystem.dll
     public static class InputsystemDll {
