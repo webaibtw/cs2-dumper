@@ -8,14 +8,14 @@
     },
     "CreateInterface": {
       "pattern": "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08",
-      "rva": 27067776,
-      "rva_hex": "0x19D0580",
+      "rva": 27068000,
+      "rva_hex": "0x19D0660",
       "matches": 1
     },
     "GetBaseEntity": {
       "pattern": "48 89 6C 24 ? 57 48 83 EC ? 44 8B 49 ? BD FF FF FF 7F 44 23 CD 48 8B F9 41 8B C8 45 85 C0 74 36",
-      "rva": 21181872,
-      "rva_hex": "0x14335B0",
+      "rva": 21182096,
+      "rva_hex": "0x1433690",
       "matches": 1
     },
     "GetBonePosition": {
@@ -26,8 +26,8 @@
     },
     "InstallSchemaBindings": {
       "pattern": "40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ?",
-      "rva": 27122928,
-      "rva_hex": "0x19DDCF0",
+      "rva": 27123152,
+      "rva_hex": "0x19DDDD0",
       "matches": 1
     },
     "SetViewAngles": {

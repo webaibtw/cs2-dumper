@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2026-10-30 22:05:00.943346238 UTC
+// 2026-10-31 04:49:20.356182380 UTC
 
 #![allow(non_upper_case_globals, unused)]
 
@@ -8,8 +8,8 @@ pub mod cs2_dumper {
         // Module: client.dll
         pub mod client_dll {
             pub const dwCSGOInput: usize = 0x257F980;
-            pub const dwEntityList: usize = 0x271EB08;
-            pub const dwGameEntitySystem: usize = 0x271EB08;
+            pub const dwEntityList: usize = 0x271EB28;
+            pub const dwGameEntitySystem: usize = 0x271EB28;
             pub const dwGameEntitySystem_highestEntityIndex: usize = 0x2120;
             pub const dwGameRules: usize = 0x2569378;
             pub const dwGameTraceManager: usize = 0x2552308;
@@ -25,8 +25,8 @@ pub mod cs2_dumper {
             pub const dwViewMatrix: usize = 0x256F1D0;
             pub const dwViewRender: usize = 0x256FB98;
             pub const dwWeaponC4: usize = 0x24CE108;
-            pub const fnCreateInterface: usize = 0x19D0580;
-            pub const fnGetBaseEntity: usize = 0x14335B0;
+            pub const fnCreateInterface: usize = 0x19D0660;
+            pub const fnGetBaseEntity: usize = 0x1433690;
             pub const fnGetBonePosition: usize = 0xE62ED0;
             pub const fnSetViewAngles: usize = 0xB82710;
             pub const fnTraceShape: usize = 0xA1B750;

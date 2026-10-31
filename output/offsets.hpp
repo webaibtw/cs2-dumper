@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2026-10-30 22:05:00.943346238 UTC
+// 2026-10-31 04:49:20.356182380 UTC
 
 #pragma once
 
@@ -11,8 +11,8 @@ namespace cs2_dumper {
         // Module: client.dll
         namespace client_dll {
             constexpr std::ptrdiff_t dwCSGOInput = 0x257F980;
-            constexpr std::ptrdiff_t dwEntityList = 0x271EB08;
-            constexpr std::ptrdiff_t dwGameEntitySystem = 0x271EB08;
+            constexpr std::ptrdiff_t dwEntityList = 0x271EB28;
+            constexpr std::ptrdiff_t dwGameEntitySystem = 0x271EB28;
             constexpr std::ptrdiff_t dwGameEntitySystem_highestEntityIndex = 0x2120;
             constexpr std::ptrdiff_t dwGameRules = 0x2569378;
             constexpr std::ptrdiff_t dwGameTraceManager = 0x2552308;
@@ -28,8 +28,8 @@ namespace cs2_dumper {
             constexpr std::ptrdiff_t dwViewMatrix = 0x256F1D0;
             constexpr std::ptrdiff_t dwViewRender = 0x256FB98;
             constexpr std::ptrdiff_t dwWeaponC4 = 0x24CE108;
-            constexpr std::ptrdiff_t fnCreateInterface = 0x19D0580;
-            constexpr std::ptrdiff_t fnGetBaseEntity = 0x14335B0;
+            constexpr std::ptrdiff_t fnCreateInterface = 0x19D0660;
+            constexpr std::ptrdiff_t fnGetBaseEntity = 0x1433690;
             constexpr std::ptrdiff_t fnGetBonePosition = 0xE62ED0;
             constexpr std::ptrdiff_t fnSetViewAngles = 0xB82710;
             constexpr std::ptrdiff_t fnTraceShape = 0xA1B750;

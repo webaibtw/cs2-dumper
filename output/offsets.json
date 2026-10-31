@@ -1,8 +1,8 @@
 {
   "client.dll": {
     "dwCSGOInput": 39319936,
-    "dwEntityList": 41020168,
-    "dwGameEntitySystem": 41020168,
+    "dwEntityList": 41020200,
+    "dwGameEntitySystem": 41020200,
     "dwGameEntitySystem_highestEntityIndex": 8480,
     "dwGameRules": 39228280,
     "dwGameTraceManager": 39133960,
@@ -18,8 +18,8 @@
     "dwViewMatrix": 39252432,
     "dwViewRender": 39254936,
     "dwWeaponC4": 38592776,
-    "fnCreateInterface": 27067776,
-    "fnGetBaseEntity": 21181872,
+    "fnCreateInterface": 27068000,
+    "fnGetBaseEntity": 21182096,
     "fnGetBonePosition": 15085264,
     "fnSetViewAngles": 12068624,
     "fnTraceShape": 10598224
