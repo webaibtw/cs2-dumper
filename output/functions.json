@@ -2,44 +2,44 @@
   "client.dll": {
     "BinaryProperties_GetValue": {
       "pattern": "83 F9 07 0F 87 ? ? ? ? 48 63 C1 4C 8D 05 ? ? ? ? 41 8B 8C 80 ?",
-      "rva": 12791744,
-      "rva_hex": "0xC32FC0",
+      "rva": 12791760,
+      "rva_hex": "0xC32FD0",
       "matches": 1
     },
     "CreateInterface": {
       "pattern": "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08",
-      "rva": 27068000,
-      "rva_hex": "0x19D0660",
+      "rva": 27068112,
+      "rva_hex": "0x19D06D0",
       "matches": 1
     },
     "GetBaseEntity": {
       "pattern": "48 89 6C 24 ? 57 48 83 EC ? 44 8B 49 ? BD FF FF FF 7F 44 23 CD 48 8B F9 41 8B C8 45 85 C0 74 36",
-      "rva": 21182096,
-      "rva_hex": "0x1433690",
+      "rva": 21182112,
+      "rva_hex": "0x14336A0",
       "matches": 1
     },
     "GetBonePosition": {
       "pattern": "48 89 5C 24 ? 48 89 7C 24 ? 55 48 8B EC 48 83 EC ? E8 ? ? ? ? 48 8D 05 ? ? FD FF",
-      "rva": 15085264,
-      "rva_hex": "0xE62ED0",
+      "rva": 15085280,
+      "rva_hex": "0xE62EE0",
       "matches": 1
     },
     "InstallSchemaBindings": {
       "pattern": "40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ?",
-      "rva": 27123152,
-      "rva_hex": "0x19DDDD0",
+      "rva": 27123264,
+      "rva_hex": "0x19DDE40",
       "matches": 1
     },
     "SetViewAngles": {
       "pattern": "85 D2 75 ? 48 63 81 ? ? ? ? F2 41 0F 10 00",
-      "rva": 12068624,
-      "rva_hex": "0xB82710",
+      "rva": 12068640,
+      "rva_hex": "0xB82720",
       "matches": 1
     },
     "TraceShape": {
       "pattern": "48 89 54 24 ? 48 89 4C 24 ? 55 53 56 57 41 54 41 56 41 57 48 8D AC 24 ? ? ? ? B8 ? ? 00 00",
-      "rva": 10598224,
-      "rva_hex": "0xA1B750",
+      "rva": 10598240,
+      "rva_hex": "0xA1B760",
       "matches": 1
     }
   },
@@ -110,8 +110,8 @@
   "panorama.dll": {
     "CreateInterface": {
       "pattern": "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08",
-      "rva": 4046144,
-      "rva_hex": "0x3DBD40",
+      "rva": 4046208,
+      "rva_hex": "0x3DBD80",
       "matches": 1
     },
     "CreatePanoramaUIEngineInternal": {
@@ -134,8 +134,8 @@
     },
     "InstallSchemaBindings": {
       "pattern": "40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ?",
-      "rva": 4133440,
-      "rva_hex": "0x3F1240",
+      "rva": 4133504,
+      "rva_hex": "0x3F1280",
       "matches": 1
     }
   },

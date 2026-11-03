@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2026-11-03 00:46:20.731914658 UTC
+// 2026-11-03 13:53:20.745610096 UTC
 
 #![allow(non_upper_case_globals, unused)]
 
@@ -7,29 +7,29 @@ pub mod cs2_dumper {
     pub mod offsets {
         // Module: client.dll
         pub mod client_dll {
-            pub const dwCSGOInput: usize = 0x257F980;
-            pub const dwEntityList: usize = 0x271EB28;
-            pub const dwGameEntitySystem: usize = 0x271EB28;
+            pub const dwCSGOInput: usize = 0x257FA10;
+            pub const dwEntityList: usize = 0x271EBA8;
+            pub const dwGameEntitySystem: usize = 0x271EBA8;
             pub const dwGameEntitySystem_highestEntityIndex: usize = 0x2120;
-            pub const dwGameRules: usize = 0x2569378;
+            pub const dwGameRules: usize = 0x25693F8;
             pub const dwGameTraceManager: usize = 0x2552308;
             pub const dwGlobalVars: usize = 0x2234108;
-            pub const dwGlowManager: usize = 0x25660A0;
-            pub const dwLocalPlayerController: usize = 0x25413F8;
-            pub const dwLocalPlayerPawn: usize = 0x25698C8;
+            pub const dwGlowManager: usize = 0x2566120;
+            pub const dwLocalPlayerController: usize = 0x2541538;
+            pub const dwLocalPlayerPawn: usize = 0x2569948;
             pub const dwPlantedC4: usize = 0x24CFB60;
-            pub const dwPrediction: usize = 0x25697D0;
-            pub const dwSensitivity: usize = 0x2566BC8;
+            pub const dwPrediction: usize = 0x2569850;
+            pub const dwSensitivity: usize = 0x2566C48;
             pub const dwSensitivity_sensitivity: usize = 0x58;
-            pub const dwViewAngles: usize = 0x2580008;
-            pub const dwViewMatrix: usize = 0x256F1D0;
-            pub const dwViewRender: usize = 0x256FB98;
+            pub const dwViewAngles: usize = 0x2580098;
+            pub const dwViewMatrix: usize = 0x256F250;
+            pub const dwViewRender: usize = 0x256FC18;
             pub const dwWeaponC4: usize = 0x24CE108;
-            pub const fnCreateInterface: usize = 0x19D0660;
-            pub const fnGetBaseEntity: usize = 0x1433690;
-            pub const fnGetBonePosition: usize = 0xE62ED0;
-            pub const fnSetViewAngles: usize = 0xB82710;
-            pub const fnTraceShape: usize = 0xA1B750;
+            pub const fnCreateInterface: usize = 0x19D06D0;
+            pub const fnGetBaseEntity: usize = 0x14336A0;
+            pub const fnGetBonePosition: usize = 0xE62EE0;
+            pub const fnSetViewAngles: usize = 0xB82720;
+            pub const fnTraceShape: usize = 0xA1B760;
         }
         // Module: engine2.dll
         pub mod engine2_dll {
