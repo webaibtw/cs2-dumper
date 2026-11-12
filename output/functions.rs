@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2026-11-11 13:50:58.158056260 UTC
+// 2026-11-12 00:17:30.044832386 UTC
 
 #![allow(non_upper_case_globals, unused)]
 
@@ -8,32 +8,32 @@ pub mod cs2_dumper {
         // Module: client.dll
         pub mod client_dll {
             // Pattern: 83 F9 07 0F 87 ? ? ? ? 48 63 C1 4C 8D 05 ? ? ? ? 41 8B 8C 80 ? (Matches: 1)
-            pub const BinaryProperties_GetValue: usize = 0xC33140;
+            pub const BinaryProperties_GetValue: usize = 0xC27580;
             // Pattern: 4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08 (Matches: 1)
-            pub const CreateInterface: usize = 0x19D0FF0;
+            pub const CreateInterface: usize = 0x19C5CA0;
             // Pattern: 48 89 6C 24 ? 57 48 83 EC ? 44 8B 49 ? BD FF FF FF 7F 44 23 CD 48 8B F9 41 8B C8 45 85 C0 74 36 (Matches: 1)
-            pub const GetBaseEntity: usize = 0x1433FC0;
+            pub const GetBaseEntity: usize = 0x14285B0;
             // Pattern: 48 89 5C 24 ? 48 89 7C 24 ? 55 48 8B EC 48 83 EC ? E8 ? ? ? ? 48 8D 05 ? ? FD FF (Matches: 1)
-            pub const GetBonePosition: usize = 0xE63610;
+            pub const GetBonePosition: usize = 0xE59970;
             // Pattern: 40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ? (Matches: 1)
-            pub const InstallSchemaBindings: usize = 0x19DE760;
+            pub const InstallSchemaBindings: usize = 0x19D3400;
             // Pattern: 85 D2 75 ? 48 63 81 ? ? ? ? F2 41 0F 10 00 (Matches: 1)
-            pub const SetViewAngles: usize = 0xB82890;
+            pub const SetViewAngles: usize = 0xB763A0;
             // Pattern: 48 89 54 24 ? 48 89 4C 24 ? 55 53 56 57 41 54 41 56 41 57 48 8D AC 24 ? ? ? ? B8 ? ? 00 00 (Matches: 1)
-            pub const TraceShape: usize = 0xA1B8D0;
+            pub const TraceShape: usize = 0xA148D0;
         }
         // Module: engine2.dll
         pub mod engine2_dll {
             // Pattern: 4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08 (Matches: 1)
-            pub const CreateInterface: usize = 0x40AEC0;
+            pub const CreateInterface: usize = 0x407190;
             // Pattern: 40 56 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8B F1 8B 15 ? ? ? ? (Matches: 1)
-            pub const ExtractModuleMetadata: usize = 0x2496E0;
+            pub const ExtractModuleMetadata: usize = 0x246710;
             // Pattern: 48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 (Matches: 69)
-            pub const GetResourceManifests: usize = 0x3C810;
+            pub const GetResourceManifests: usize = 0x3C690;
             // Pattern: 40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ? (Matches: 1)
-            pub const InstallSchemaBindings: usize = 0x424310;
+            pub const InstallSchemaBindings: usize = 0x4205A0;
             // Pattern: 48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 18 41 56 48 81 EC 80 00 00 00 (Matches: 1)
-            pub const Source2Main: usize = 0x2111E0;
+            pub const Source2Main: usize = 0x20DBE0;
         }
         // Module: inputsystem.dll
         pub mod inputsystem_dll {
@@ -64,15 +64,15 @@ pub mod cs2_dumper {
         // Module: particles.dll
         pub mod particles_dll {
             // Pattern: 83 F9 07 0F 87 ? ? ? ? 48 63 C1 4C 8D 05 ? ? ? ? 41 8B 8C 80 ? (Matches: 1)
-            pub const BinaryProperties_GetValue: usize = 0xD03C0;
+            pub const BinaryProperties_GetValue: usize = 0xD0360;
             // Pattern: 4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08 (Matches: 1)
-            pub const CreateInterface: usize = 0x4253E0;
+            pub const CreateInterface: usize = 0x425380;
             // Pattern: 40 56 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8B F1 8B 15 ? ? ? ? (Matches: 1)
-            pub const ExtractModuleMetadata: usize = 0xD0810;
+            pub const ExtractModuleMetadata: usize = 0xD07B0;
             // Pattern: 48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 (Matches: 22)
-            pub const GetResourceManifests: usize = 0x12180;
+            pub const GetResourceManifests: usize = 0x12120;
             // Pattern: 40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ? (Matches: 1)
-            pub const InstallSchemaBindings: usize = 0x429B50;
+            pub const InstallSchemaBindings: usize = 0x429AF0;
         }
         // Module: scenesystem.dll
         pub mod scenesystem_dll {
