@@ -1,32 +1,31 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2026-11-17 15:43:42.427001667 UTC
+// 2026-11-18 00:45:36.937969025 UTC
 
 namespace CS2Dumper.Offsets {
     // Module: client.dll
     public static class ClientDll {
-        public const nint dwCSGOInput = 0x2569E30;
-        public const nint dwEntityList = 0x2709010;
-        public const nint dwGameEntitySystem = 0x2709010;
+        public const nint dwCSGOInput = 0x256CFE0;
+        public const nint dwEntityList = 0x270C680;
+        public const nint dwGameEntitySystem = 0x270C680;
         public const nint dwGameEntitySystem_highestEntityIndex = 0x2120;
-        public const nint dwGameRules = 0x25537E8;
-        public const nint dwGameTraceManager = 0x253C5A8;
-        public const nint dwGlobalVars = 0x2221AB8;
-        public const nint dwGlowManager = 0x2550500;
-        public const nint dwLocalPlayerController = 0x252B0C8;
-        public const nint dwLocalPlayerPawn = 0x2553D38;
-        public const nint dwPlantedC4 = 0x24B9B90;
-        public const nint dwPrediction = 0x2553C40;
-        public const nint dwSensitivity = 0x2551038;
+        public const nint dwGameRules = 0x2556E78;
+        public const nint dwGameTraceManager = 0x253FCA8;
+        public const nint dwGlobalVars = 0x2223AD0;
+        public const nint dwGlowManager = 0x2553B90;
+        public const nint dwLocalPlayerController = 0x252ED78;
+        public const nint dwLocalPlayerPawn = 0x2557538;
+        public const nint dwPrediction = 0x2557440;
+        public const nint dwSensitivity = 0x25546C8;
         public const nint dwSensitivity_sensitivity = 0x58;
-        public const nint dwViewAngles = 0x256A4B8;
-        public const nint dwViewMatrix = 0x2559640;
-        public const nint dwViewRender = 0x255A008;
-        public const nint dwWeaponC4 = 0x24B83B0;
-        public const nint fnCreateInterface = 0x19C5CA0;
-        public const nint fnGetBaseEntity = 0x14285B0;
-        public const nint fnGetBonePosition = 0xE59970;
-        public const nint fnSetViewAngles = 0xB763A0;
-        public const nint fnTraceShape = 0xA148D0;
+        public const nint dwViewAngles = 0x256D668;
+        public const nint dwViewMatrix = 0x255CE50;
+        public const nint dwViewRender = 0x255D818;
+        public const nint dwWeaponC4 = 0x24BB680;
+        public const nint fnCreateInterface = 0x19C8A20;
+        public const nint fnGetBaseEntity = 0x142B330;
+        public const nint fnGetBonePosition = 0xE5AF30;
+        public const nint fnSetViewAngles = 0xB76E40;
+        public const nint fnTraceShape = 0xA15360;
     }
     // Module: engine2.dll
     public static class Engine2Dll {
