@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2026-11-18 00:45:36.937969025 UTC
+// 2026-11-18 15:23:12.583582262 UTC
 
 namespace CS2Dumper.Offsets {
     // Module: client.dll
@@ -21,16 +21,16 @@ namespace CS2Dumper.Offsets {
         public const nint dwViewMatrix = 0x255CE50;
         public const nint dwViewRender = 0x255D818;
         public const nint dwWeaponC4 = 0x24BB680;
-        public const nint fnCreateInterface = 0x19C8A20;
-        public const nint fnGetBaseEntity = 0x142B330;
+        public const nint fnCreateInterface = 0x19C8B40;
+        public const nint fnGetBaseEntity = 0x142B450;
         public const nint fnGetBonePosition = 0xE5AF30;
         public const nint fnSetViewAngles = 0xB76E40;
         public const nint fnTraceShape = 0xA15360;
     }
     // Module: engine2.dll
     public static class Engine2Dll {
-        public const nint dwBuildNumber = 0x6B2D18;
-        public const nint dwNetworkGameClient = 0x9AFB30;
+        public const nint dwBuildNumber = 0x6B2D1C;
+        public const nint dwNetworkGameClient = 0x9AFB90;
         public const nint dwNetworkGameClient_clientTickCount = 0x398;
         public const nint dwNetworkGameClient_deltaTick = 0x24C;
         public const nint dwNetworkGameClient_isBackgroundMap = 0x2C143F;
@@ -38,9 +38,9 @@ namespace CS2Dumper.Offsets {
         public const nint dwNetworkGameClient_maxClients = 0x240;
         public const nint dwNetworkGameClient_serverTickCount = 0x24C;
         public const nint dwNetworkGameClient_signOnState = 0x230;
-        public const nint dwWindowHeight = 0x9B4294;
-        public const nint dwWindowWidth = 0x9B4290;
-        public const nint fnCreateInterface = 0x407190;
+        public const nint dwWindowHeight = 0x9B42EC;
+        public const nint dwWindowWidth = 0x9B42E8;
+        public const nint fnCreateInterface = 0x4075C0;
     }
     // Module: inputsystem.dll
     public static class InputsystemDll {

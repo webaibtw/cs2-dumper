@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2026-11-18 00:45:36.937969025 UTC
+// 2026-11-18 15:23:12.583582262 UTC
 
 #![allow(non_upper_case_globals, unused)]
 
@@ -24,16 +24,16 @@ pub mod cs2_dumper {
             pub const dwViewMatrix: usize = 0x255CE50;
             pub const dwViewRender: usize = 0x255D818;
             pub const dwWeaponC4: usize = 0x24BB680;
-            pub const fnCreateInterface: usize = 0x19C8A20;
-            pub const fnGetBaseEntity: usize = 0x142B330;
+            pub const fnCreateInterface: usize = 0x19C8B40;
+            pub const fnGetBaseEntity: usize = 0x142B450;
             pub const fnGetBonePosition: usize = 0xE5AF30;
             pub const fnSetViewAngles: usize = 0xB76E40;
             pub const fnTraceShape: usize = 0xA15360;
         }
         // Module: engine2.dll
         pub mod engine2_dll {
-            pub const dwBuildNumber: usize = 0x6B2D18;
-            pub const dwNetworkGameClient: usize = 0x9AFB30;
+            pub const dwBuildNumber: usize = 0x6B2D1C;
+            pub const dwNetworkGameClient: usize = 0x9AFB90;
             pub const dwNetworkGameClient_clientTickCount: usize = 0x398;
             pub const dwNetworkGameClient_deltaTick: usize = 0x24C;
             pub const dwNetworkGameClient_isBackgroundMap: usize = 0x2C143F;
@@ -41,9 +41,9 @@ pub mod cs2_dumper {
             pub const dwNetworkGameClient_maxClients: usize = 0x240;
             pub const dwNetworkGameClient_serverTickCount: usize = 0x24C;
             pub const dwNetworkGameClient_signOnState: usize = 0x230;
-            pub const dwWindowHeight: usize = 0x9B4294;
-            pub const dwWindowWidth: usize = 0x9B4290;
-            pub const fnCreateInterface: usize = 0x407190;
+            pub const dwWindowHeight: usize = 0x9B42EC;
+            pub const dwWindowWidth: usize = 0x9B42E8;
+            pub const fnCreateInterface: usize = 0x4075C0;
         }
         // Module: inputsystem.dll
         pub mod inputsystem_dll {

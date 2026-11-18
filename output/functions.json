@@ -8,14 +8,14 @@
     },
     "CreateInterface": {
       "pattern": "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08",
-      "rva": 27036192,
-      "rva_hex": "0x19C8A20",
+      "rva": 27036480,
+      "rva_hex": "0x19C8B40",
       "matches": 1
     },
     "GetBaseEntity": {
       "pattern": "48 89 6C 24 ? 57 48 83 EC ? 44 8B 49 ? BD FF FF FF 7F 44 23 CD 48 8B F9 41 8B C8 45 85 C0 74 36",
-      "rva": 21148464,
-      "rva_hex": "0x142B330",
+      "rva": 21148752,
+      "rva_hex": "0x142B450",
       "matches": 1
     },
     "GetBonePosition": {
@@ -26,8 +26,8 @@
     },
     "InstallSchemaBindings": {
       "pattern": "40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ?",
-      "rva": 27091328,
-      "rva_hex": "0x19D6180",
+      "rva": 27091616,
+      "rva_hex": "0x19D62A0",
       "matches": 1
     },
     "SetViewAngles": {
@@ -46,14 +46,14 @@
   "engine2.dll": {
     "CreateInterface": {
       "pattern": "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08",
-      "rva": 4223376,
-      "rva_hex": "0x407190",
+      "rva": 4224448,
+      "rva_hex": "0x4075C0",
       "matches": 1
     },
     "ExtractModuleMetadata": {
       "pattern": "40 56 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8B F1 8B 15 ? ? ? ?",
-      "rva": 2385680,
-      "rva_hex": "0x246710",
+      "rva": 2386752,
+      "rva_hex": "0x246B40",
       "matches": 1
     },
     "GetResourceManifests": {
@@ -64,14 +64,14 @@
     },
     "InstallSchemaBindings": {
       "pattern": "40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ?",
-      "rva": 4326816,
-      "rva_hex": "0x4205A0",
+      "rva": 4327888,
+      "rva_hex": "0x4209D0",
       "matches": 1
     },
     "Source2Main": {
       "pattern": "48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 18 41 56 48 81 EC 80 00 00 00",
-      "rva": 2153440,
-      "rva_hex": "0x20DBE0",
+      "rva": 2154512,
+      "rva_hex": "0x20E010",
       "matches": 1
     }
   },

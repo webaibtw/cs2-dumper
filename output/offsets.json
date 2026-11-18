@@ -17,15 +17,15 @@
     "dwViewMatrix": 39177808,
     "dwViewRender": 39180312,
     "dwWeaponC4": 38516352,
-    "fnCreateInterface": 27036192,
-    "fnGetBaseEntity": 21148464,
+    "fnCreateInterface": 27036480,
+    "fnGetBaseEntity": 21148752,
     "fnGetBonePosition": 15052592,
     "fnSetViewAngles": 12021312,
     "fnTraceShape": 10572640
   },
   "engine2.dll": {
-    "dwBuildNumber": 7023896,
-    "dwNetworkGameClient": 10156848,
+    "dwBuildNumber": 7023900,
+    "dwNetworkGameClient": 10156944,
     "dwNetworkGameClient_clientTickCount": 920,
     "dwNetworkGameClient_deltaTick": 588,
     "dwNetworkGameClient_isBackgroundMap": 2888767,
@@ -33,9 +33,9 @@
     "dwNetworkGameClient_maxClients": 576,
     "dwNetworkGameClient_serverTickCount": 588,
     "dwNetworkGameClient_signOnState": 560,
-    "dwWindowHeight": 10175124,
-    "dwWindowWidth": 10175120,
-    "fnCreateInterface": 4223376
+    "dwWindowHeight": 10175212,
+    "dwWindowWidth": 10175208,
+    "fnCreateInterface": 4224448
   },
   "inputsystem.dll": {
     "dwInputSystem": 289728

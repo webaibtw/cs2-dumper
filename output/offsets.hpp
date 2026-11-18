@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2026-11-18 00:45:36.937969025 UTC
+// 2026-11-18 15:23:12.583582262 UTC
 
 #pragma once
 
@@ -27,16 +27,16 @@ namespace cs2_dumper {
             constexpr std::ptrdiff_t dwViewMatrix = 0x255CE50;
             constexpr std::ptrdiff_t dwViewRender = 0x255D818;
             constexpr std::ptrdiff_t dwWeaponC4 = 0x24BB680;
-            constexpr std::ptrdiff_t fnCreateInterface = 0x19C8A20;
-            constexpr std::ptrdiff_t fnGetBaseEntity = 0x142B330;
+            constexpr std::ptrdiff_t fnCreateInterface = 0x19C8B40;
+            constexpr std::ptrdiff_t fnGetBaseEntity = 0x142B450;
             constexpr std::ptrdiff_t fnGetBonePosition = 0xE5AF30;
             constexpr std::ptrdiff_t fnSetViewAngles = 0xB76E40;
             constexpr std::ptrdiff_t fnTraceShape = 0xA15360;
         }
         // Module: engine2.dll
         namespace engine2_dll {
-            constexpr std::ptrdiff_t dwBuildNumber = 0x6B2D18;
-            constexpr std::ptrdiff_t dwNetworkGameClient = 0x9AFB30;
+            constexpr std::ptrdiff_t dwBuildNumber = 0x6B2D1C;
+            constexpr std::ptrdiff_t dwNetworkGameClient = 0x9AFB90;
             constexpr std::ptrdiff_t dwNetworkGameClient_clientTickCount = 0x398;
             constexpr std::ptrdiff_t dwNetworkGameClient_deltaTick = 0x24C;
             constexpr std::ptrdiff_t dwNetworkGameClient_isBackgroundMap = 0x2C143F;
@@ -44,9 +44,9 @@ namespace cs2_dumper {
             constexpr std::ptrdiff_t dwNetworkGameClient_maxClients = 0x240;
             constexpr std::ptrdiff_t dwNetworkGameClient_serverTickCount = 0x24C;
             constexpr std::ptrdiff_t dwNetworkGameClient_signOnState = 0x230;
-            constexpr std::ptrdiff_t dwWindowHeight = 0x9B4294;
-            constexpr std::ptrdiff_t dwWindowWidth = 0x9B4290;
-            constexpr std::ptrdiff_t fnCreateInterface = 0x407190;
+            constexpr std::ptrdiff_t dwWindowHeight = 0x9B42EC;
+            constexpr std::ptrdiff_t dwWindowWidth = 0x9B42E8;
+            constexpr std::ptrdiff_t fnCreateInterface = 0x4075C0;
         }
         // Module: inputsystem.dll
         namespace inputsystem_dll {
