@@ -17,8 +17,8 @@
     "dwViewMatrix": 39177808,
     "dwViewRender": 39180312,
     "dwWeaponC4": 38516352,
-    "fnCreateInterface": 27036480,
-    "fnGetBaseEntity": 21148752,
+    "fnCreateInterface": 27036576,
+    "fnGetBaseEntity": 21148848,
     "fnGetBonePosition": 15052592,
     "fnSetViewAngles": 12021312,
     "fnTraceShape": 10572640

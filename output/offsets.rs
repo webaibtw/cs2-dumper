@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2026-11-18 15:23:12.583582262 UTC
+// 2026-11-19 15:29:39.075975039 UTC
 
 #![allow(non_upper_case_globals, unused)]
 
@@ -24,8 +24,8 @@ pub mod cs2_dumper {
             pub const dwViewMatrix: usize = 0x255CE50;
             pub const dwViewRender: usize = 0x255D818;
             pub const dwWeaponC4: usize = 0x24BB680;
-            pub const fnCreateInterface: usize = 0x19C8B40;
-            pub const fnGetBaseEntity: usize = 0x142B450;
+            pub const fnCreateInterface: usize = 0x19C8BA0;
+            pub const fnGetBaseEntity: usize = 0x142B4B0;
             pub const fnGetBonePosition: usize = 0xE5AF30;
             pub const fnSetViewAngles: usize = 0xB76E40;
             pub const fnTraceShape: usize = 0xA15360;

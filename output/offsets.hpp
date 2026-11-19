@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2026-11-18 15:23:12.583582262 UTC
+// 2026-11-19 15:29:39.075975039 UTC
 
 #pragma once
 
@@ -27,8 +27,8 @@ namespace cs2_dumper {
             constexpr std::ptrdiff_t dwViewMatrix = 0x255CE50;
             constexpr std::ptrdiff_t dwViewRender = 0x255D818;
             constexpr std::ptrdiff_t dwWeaponC4 = 0x24BB680;
-            constexpr std::ptrdiff_t fnCreateInterface = 0x19C8B40;
-            constexpr std::ptrdiff_t fnGetBaseEntity = 0x142B450;
+            constexpr std::ptrdiff_t fnCreateInterface = 0x19C8BA0;
+            constexpr std::ptrdiff_t fnGetBaseEntity = 0x142B4B0;
             constexpr std::ptrdiff_t fnGetBonePosition = 0xE5AF30;
             constexpr std::ptrdiff_t fnSetViewAngles = 0xB76E40;
             constexpr std::ptrdiff_t fnTraceShape = 0xA15360;

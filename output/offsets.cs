@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2026-11-18 15:23:12.583582262 UTC
+// 2026-11-19 15:29:39.075975039 UTC
 
 namespace CS2Dumper.Offsets {
     // Module: client.dll
@@ -21,8 +21,8 @@ namespace CS2Dumper.Offsets {
         public const nint dwViewMatrix = 0x255CE50;
         public const nint dwViewRender = 0x255D818;
         public const nint dwWeaponC4 = 0x24BB680;
-        public const nint fnCreateInterface = 0x19C8B40;
-        public const nint fnGetBaseEntity = 0x142B450;
+        public const nint fnCreateInterface = 0x19C8BA0;
+        public const nint fnGetBaseEntity = 0x142B4B0;
         public const nint fnGetBonePosition = 0xE5AF30;
         public const nint fnSetViewAngles = 0xB76E40;
         public const nint fnTraceShape = 0xA15360;
