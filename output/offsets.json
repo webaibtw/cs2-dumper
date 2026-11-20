@@ -1,27 +1,27 @@
 {
   "client.dll": {
-    "dwCSGOInput": 39243744,
-    "dwEntityList": 40945280,
-    "dwGameEntitySystem": 40945280,
+    "dwCSGOInput": 39245152,
+    "dwEntityList": 40949168,
+    "dwGameEntitySystem": 40949168,
     "dwGameEntitySystem_highestEntityIndex": 8480,
-    "dwGameRules": 39153272,
-    "dwGameTraceManager": 39058600,
+    "dwGameRules": 39154680,
+    "dwGameTraceManager": 39060008,
     "dwGlobalVars": 35797712,
-    "dwGlowManager": 39140240,
-    "dwLocalPlayerController": 38989176,
-    "dwLocalPlayerPawn": 39155000,
-    "dwPrediction": 39154752,
-    "dwSensitivity": 39143112,
+    "dwGlowManager": 39141648,
+    "dwLocalPlayerController": 38990592,
+    "dwLocalPlayerPawn": 39156408,
+    "dwPrediction": 39156160,
+    "dwSensitivity": 39144520,
     "dwSensitivity_sensitivity": 88,
-    "dwViewAngles": 39245416,
-    "dwViewMatrix": 39177808,
-    "dwViewRender": 39180312,
-    "dwWeaponC4": 38516352,
-    "fnCreateInterface": 27036576,
-    "fnGetBaseEntity": 21148848,
-    "fnGetBonePosition": 15052592,
-    "fnSetViewAngles": 12021312,
-    "fnTraceShape": 10572640
+    "dwViewAngles": 39246824,
+    "dwViewMatrix": 39179216,
+    "dwViewRender": 39181720,
+    "dwWeaponC4": 38517760,
+    "fnCreateInterface": 27036672,
+    "fnGetBaseEntity": 21148944,
+    "fnGetBonePosition": 15052688,
+    "fnSetViewAngles": 12021424,
+    "fnTraceShape": 10572752
   },
   "engine2.dll": {
     "dwBuildNumber": 7023900,
@@ -35,7 +35,7 @@
     "dwNetworkGameClient_signOnState": 560,
     "dwWindowHeight": 10175212,
     "dwWindowWidth": 10175208,
-    "fnCreateInterface": 4224448
+    "fnCreateInterface": 4224560
   },
   "inputsystem.dll": {
     "dwInputSystem": 289728
